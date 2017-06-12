@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Header from '@/components/Header'
+import SideBar from '@/components/SideBar'
+import UserList from '@/components/UserList'
 
 Vue.use(Router)
 
@@ -8,9 +10,10 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Header',
       components: {
-        header: Header
+        header: Header,
+        sideBar: SideBar,
+        default: UserList
       }
     }
   ]

@@ -31,7 +31,7 @@
     header {
         position: fixed;
         width: 100%;
-        height: 70px;
+        height: 60px;
         background-color: $header-bg;
     }
     .header-logo {
@@ -40,14 +40,14 @@
     .header-logo__a {
         position: relative;
         box-sizing: border-box;
-        padding: 0 0 0 70px;
+        padding: 0 0 0 60px;
         display: block;
-        line-height: 70px;
+        line-height: 60px;
         color: white;
     }
     .header-logo__a__icon {
         position: absolute;
-        top: 20px;
+        top: 15px;
         left: 20px;
         font-size: 30px;
     }
@@ -57,7 +57,7 @@
     .header-menu__ul__li {
         float: right;
         margin-right: 10px;
-        line-height: 70px;
+        line-height: 60px;
         color: #ffffff;
     }
     .li__a {
