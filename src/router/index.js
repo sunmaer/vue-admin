@@ -9,7 +9,9 @@ export default new Router({
     {
       path: '/',
       name: 'Header',
-      component: Header
+      components: {
+        header: Header
+      }
     }
   ]
 })
