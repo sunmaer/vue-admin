@@ -5,8 +5,10 @@ import App from './App'
 import router from './router'
 import iview from 'iview'
 import 'iview/dist/styles/iview.css'
+import axios from 'axios'
 
 Vue.use(iview)
+Vue.prototype.$ajax = axios
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

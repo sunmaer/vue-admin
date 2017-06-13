@@ -17,28 +17,40 @@
             return {
                 columns: [
                     {
+                        title: '#',
+                        key: 'uid',
+                        width: '60',
+                        align: 'center'
+                    },
+                    {
                         title: '姓名',
-                        key: 'name'
+                        key: 'name',
+                        align: 'center'
                     },
                     {
                         title: '性别',
-                        key: 'gender'
+                        key: 'gender',
+                        align: 'center'
                     },
                     {
                         title: '年龄',
-                        key: 'age'
+                        key: 'age',
+                        align: 'center'
                     },
                     {
                         title: '工作',
-                        key: 'job'
+                        key: 'job',
+                        align: 'center'
                     },
                     {
                         title: '手机号码',
-                        key: 'tel'
+                        key: 'tel',
+                        align: 'center'
                     },
                     {
                         title: '地址',
-                        key: 'address'
+                        key: 'address',
+                        align: 'center'
                     },
                     {
                         title: '操作',
@@ -76,75 +88,20 @@
                         }
                     }
                 ],
-                data: [
-                    {
-                        name: '王小明',
-                        gender: '男',
-                        age: 18,
-                        job: '程序员',
-                        tel: '1555555555',
-                        address: '北京市朝阳区芍药居'
-                    },
-                    {
-                        name: '王小明',
-                        gender: '男',
-                        age: 18,
-                        job: '程序员',
-                        tel: '1555555555',
-                        address: '北京市朝阳区芍药居'
-                    },
-                    {
-                        name: '王小明',
-                        gender: '男',
-                        age: 18,
-                        job: '程序员',
-                        tel: '1555555555',
-                        address: '北京市朝阳区芍药居'
-                    },
-                    {
-                        name: '王小明',
-                        gender: '男',
-                        age: 18,
-                        job: '程序员',
-                        tel: '1555555555',
-                        address: '北京市朝阳区芍药居'
-                    },
-                    {
-                        name: '王小明',
-                        gender: '男',
-                        age: 18,
-                        job: '程序员',
-                        tel: '1555555555',
-                        address: '北京市朝阳区芍药居'
-                    },
-                    {
-                        name: '王小明',
-                        gender: '男',
-                        age: 18,
-                        job: '程序员',
-                        tel: '1555555555',
-                        address: '北京市朝阳区芍药居'
-                    },
-                    {
-                        name: '王小明',
-                        gender: '男',
-                        age: 18,
-                        job: '程序员',
-                        tel: '1555555555',
-                        address: '北京市朝阳区芍药居'
-                    },
-                    {
-                        name: '王小明',
-                        gender: '男',
-                        age: 18,
-                        job: '程序员',
-                        tel: '1555555555',
-                        address: '北京市朝阳区芍药居'
-                    },
-                ]
+                data: []
             }
         },
+        mounted: function() {
+            this.getUser()
+        },
         methods: {
+            // 获取用户数据
+            getUser() {
+                this.$ajax.get('/static/data.json').then((res) => {
+                    this.data = res.data.data
+                })
+            },
+            // 查看用户信息
             show(index) {
                 this.$Modal.info({
                     title: '用户信息',
@@ -156,6 +113,7 @@
                               地址：${this.data[index].address}<br>`
                 })
             },
+            // 删除用户
             remove(index) {
                 this.data.splice(index, 1);
             }
