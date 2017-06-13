@@ -1,7 +1,13 @@
 <template>
     <div id="userList">
-        <Button type="primary" icon="plus-round" size="large">增加用户</Button>
-        <Table class="userTable" border width="500" :columns="columns1" :data="data1"></Table>
+        <div class="title">
+            <h1 class="title__h1">用户列表</h1>
+            <router-link to="/addUser">
+                <Button class="title__button" type="primary" icon="plus-round">添加用户</Button>
+            </router-link>
+        </div>
+        <Table class="userTable" border :columns="columns" :data="data"></Table>
+        <Page class="page" :total="50" show-total size="small"></Page>
     </div>
 </template>
 
@@ -9,42 +15,149 @@
     export default {
         data () {
             return {
-                columns1: [
+                columns: [
                     {
                         title: '姓名',
                         key: 'name'
+                    },
+                    {
+                        title: '性别',
+                        key: 'gender'
                     },
                     {
                         title: '年龄',
                         key: 'age'
                     },
                     {
+                        title: '工作',
+                        key: 'job'
+                    },
+                    {
+                        title: '手机号码',
+                        key: 'tel'
+                    },
+                    {
                         title: '地址',
                         key: 'address'
+                    },
+                    {
+                        title: '操作',
+                        key: 'action',
+                        width: 150,
+                        align: 'center',
+                        render: (h, params) => {
+                            return h('div', [
+                                h('Button', {
+                                    props: {
+                                        type: 'primary',
+                                        size: 'small'
+                                    },
+                                    style: {
+                                        marginRight: '5px'
+                                    },
+                                    on: {
+                                        click: () => {
+                                            this.show(params.index)
+                                        }
+                                    }
+                                }, '查看'),
+                                h('Button', {
+                                    props: {
+                                        type: 'error',
+                                        size: 'small'
+                                    },
+                                    on: {
+                                        click: () => {
+                                            this.remove(params.index)
+                                        }
+                                    }
+                                }, '删除')
+                            ])
+                        }
                     }
                 ],
-                data1: [
+                data: [
                     {
                         name: '王小明',
+                        gender: '男',
                         age: 18,
+                        job: '程序员',
+                        tel: '1555555555',
                         address: '北京市朝阳区芍药居'
                     },
                     {
-                        name: '张小刚',
-                        age: 25,
-                        address: '北京市海淀区西二旗'
+                        name: '王小明',
+                        gender: '男',
+                        age: 18,
+                        job: '程序员',
+                        tel: '1555555555',
+                        address: '北京市朝阳区芍药居'
                     },
                     {
-                        name: '李小红',
-                        age: 30,
-                        address: '上海市浦东新区世纪大道'
+                        name: '王小明',
+                        gender: '男',
+                        age: 18,
+                        job: '程序员',
+                        tel: '1555555555',
+                        address: '北京市朝阳区芍药居'
                     },
                     {
-                        name: '周小伟',
-                        age: 26,
-                        address: '深圳市南山区深南大道'
-                    }
+                        name: '王小明',
+                        gender: '男',
+                        age: 18,
+                        job: '程序员',
+                        tel: '1555555555',
+                        address: '北京市朝阳区芍药居'
+                    },
+                    {
+                        name: '王小明',
+                        gender: '男',
+                        age: 18,
+                        job: '程序员',
+                        tel: '1555555555',
+                        address: '北京市朝阳区芍药居'
+                    },
+                    {
+                        name: '王小明',
+                        gender: '男',
+                        age: 18,
+                        job: '程序员',
+                        tel: '1555555555',
+                        address: '北京市朝阳区芍药居'
+                    },
+                    {
+                        name: '王小明',
+                        gender: '男',
+                        age: 18,
+                        job: '程序员',
+                        tel: '1555555555',
+                        address: '北京市朝阳区芍药居'
+                    },
+                    {
+                        name: '王小明',
+                        gender: '男',
+                        age: 18,
+                        job: '程序员',
+                        tel: '1555555555',
+                        address: '北京市朝阳区芍药居'
+                    },
                 ]
+            }
+        },
+        methods: {
+            show(index) {
+                this.$Modal.info({
+                    title: '用户信息',
+                    content: `姓名：${this.data[index].name}<br>
+                              性别: ${this.data[index].gender}<br>
+                              年龄：${this.data[index].age}<br>
+                              工作：${this.data[index].job}<br>
+                              手机号码：${this.data[index].tel}<br>
+                              地址：${this.data[index].address}<br>`
+                })
+            },
+            remove(index) {
+                this.data.splice(index, 1);
             }
         }
     }
@@ -55,7 +168,24 @@
         box-sizing: border-box;
         padding: 20px;
     }
+    .title {
+        line-height: 40px;
+        overflow: hidden;
+        border-bottom: 1px solid #e9eaec;
+    }
+    .title__h1 {
+        float: left;
+        width: 200px;
+        font-size: 15px;
+        color: #495060;
+    }
+    .title__button {
+        float: right;
+    }
     .userTable {
-        margin: 20px 0;
+        margin: 10px 0;
+    }
+    .page {
+        float: right;
     }
 </style>

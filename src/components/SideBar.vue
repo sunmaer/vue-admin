@@ -1,31 +1,26 @@
 <template>
-    <div id="sideBar">
-        <Menu theme="dark" accordion width="auto"> 
-            <Submenu name="1">
-                <template slot="title">
-                    <Icon type="person" size="18"></Icon>
-                    用户管理
-                </template>
-                <Menu-item name="1-1">用户列表</Menu-item>
-                <Menu-item name="1-2">用户列表</Menu-item>
-                <Menu-item name="1-3">用户列表</Menu-item>
-            </Submenu>
-            <Submenu name="2">
-                <template slot="title">
-                    <Icon type="ios-home" size="18"></Icon>
-                    用户管理
-                </template>
-                <Menu-item name="2-1">用户列表</Menu-item>
-                <Menu-item name="2-2">用户列表</Menu-item>
-            </Submenu>
-            <Submenu name="3">
-                <template slot="title">
-                    <Icon type="ios-gear" size="18"></Icon>
-                    用户管理
-                </template>
-                <Menu-item name="3-1">用户列表</Menu-item>
-                <Menu-item name="3-2">用户列表</Menu-item>
-            </Submenu>
-        </Menu>
-    </div>
+    <Menu class="sideBar" theme="dark" accordion width="auto"> 
+        <router-link to="/">
+            <Menu-item class="sideBar__item" name="1">
+                <Icon type="person-stalker" size="18"></Icon>
+                用户列表
+            </Menu-item>
+        </router-link>
+        <router-link to="/addUser">
+            <Menu-item class="sideBar__item" name="2">
+                <Icon type="person-add" size="18"></Icon>
+                添加用户
+            </Menu-item>
+        </router-link>
+        
+    </Menu>
 </template>
+
+<style lang="scss">
+    .sideBar {
+        background-color: #2d3545;
+    }
+    .sideBar__item {
+        border-bottom: 1px solid #1c2438;
+    }
+</style>

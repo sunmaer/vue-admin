@@ -30,19 +30,19 @@ body {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-size: 15px;
+  font-size: 13px;
   color: #666666;
 }
 .left {
   position: fixed;
+  z-index: 999;
   top: 60px;
   left: 0;
   height: 100%;
-  background-color: #1c2438;
+  background-color: #2d3545;
 }
 .right {
   box-sizing: border-box;
   margin-top: 60px;
-  width: 100%;
 }
 </style>
