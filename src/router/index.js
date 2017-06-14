@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Header from '@/components/Header'
 import SideBar from '@/components/SideBar'
+import Index from '@/components/Index'
 import UserList from '@/components/UserList'
 import AddUser from '@/components/AddUser'
 
@@ -11,6 +12,14 @@ export default new Router({
   routes: [
     {
       path: '/',
+      components: {
+        header: Header,
+        sideBar: SideBar,
+        default: Index
+      }
+    },
+    {
+      path: '/userList',
       components: {
         header: Header,
         sideBar: SideBar,

@@ -98,6 +98,7 @@
             // 获取用户数据
             getUser() {
                 this.$ajax.get('/static/data.json').then((res) => {
+                    console.log(res)
                     this.data = res.data.data
                 })
             },
