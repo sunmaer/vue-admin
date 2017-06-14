@@ -1,8 +1,8 @@
 # vue-user
 
-> A Vue.js project
+> 用户管理-Vue前后端分离项目
 
-## Build Setup
+## 说明文档
 
 ``` bash
 # install dependencies
