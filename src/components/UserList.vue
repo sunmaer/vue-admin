@@ -3,7 +3,7 @@
         <div class="title">
             <h1 class="title__h1">用户列表</h1>
             <router-link to="/addUser">
-                <Button class="title__button" type="primary" icon="plus-round">添加用户</Button>
+                <Button @click="addUser" class="title__button" type="primary" icon="plus-round">添加用户</Button>
             </router-link>
         </div>
         <Table class="userTable" border :columns="columns" :data="data"></Table>
@@ -95,10 +95,12 @@
             this.getUser()
         },
         methods: {
+            addUser() {
+                this.$store.state.activeName = "3"
+            },
             // 获取用户数据
             getUser() {
                 this.$ajax.get('/static/data.json').then((res) => {
-                    console.log(res)
                     this.data = res.data.data
                 })
             },

@@ -1,5 +1,5 @@
 <template>
-    <Menu class="sideBar" theme="dark" accordion width="auto"> 
+    <Menu class="sideBar" theme="dark" accordion width="auto" :active-name="navselected" @on-select="selectItems"> 
         <router-link to="/">
             <Menu-item class="sideBar__item" name="1">
                 <Icon type="ios-home" size="18"></Icon>
@@ -21,6 +21,30 @@
         
     </Menu>
 </template>
+
+<script>
+    export default {
+        data() {
+            return {
+                navselected: "1"
+            }
+        },
+        methods: {
+            getNavType() {
+                // store.state.activeName 变化时，设置 navselected
+                this.navselected = this.$store.state.activeName
+            },
+            selectItems(index) {
+                // 选中之后设置当前的 index 为store里的值
+                this.$store.state.activeName = index
+            }
+        },
+        watch: {
+            // 监测 store.state
+            '$store.state.activeName': 'getNavType'
+        }
+    }
+</script>
 
 <style lang="scss">
     .sideBar {

@@ -3,11 +3,11 @@
         <div class="title">
             <h1 class="title__h1">添加用户</h1>
             <router-link to="/userList">
-                <Button class="title__button" type="primary" icon="ios-redo-outline">返回列表</Button>
+                <Button @click="returnList" class="title__button" type="primary" icon="reply">返回列表</Button>
             </router-link>
         </div>
         <div class="addUser-form">
-            <Form ref="formValidate" :model="formValidate" :rules="ruleValidate" :label-width="80">
+            <Form ref="formValidate" :model="formValidate" :rules="ruleValidate" :label-width="100">
                 <Form-item label="姓名" prop="name">
                     <Input v-model="formValidate.name" placeholder="请输入姓名"></Input>
                 </Form-item>
@@ -72,6 +72,9 @@
             }
         },
         methods: {
+            returnList() {
+                this.$store.state.activeName = "2"
+            },
             handleSubmit (name) {
                 this.$refs[name].validate((valid) => {
                     if (valid) {
@@ -108,7 +111,7 @@
         float: right;
     }
     .addUser-form {
-        margin: 10px 0;
-        width: 500px;
+        margin: 30px auto;
+        width: 550px;
     }
 </style>
