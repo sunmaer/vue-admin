@@ -13,8 +13,8 @@
                             <Button @click="addUser" class="title__button" type="primary" icon="plus-round">添加用户</Button>
                         </router-link>
                     </div>
-                    <Table class="userTable" border :columns="columns" :data="data"></Table>
-                    <Page class="page" :total="50" show-total size="small"></Page>
+                    <Table class="userList__table" border :columns="columns" :data="data"></Table>
+                    <Page class="userList__page" :total="50" show-total size="small"></Page>
                 </div>
             </Col>
         </Row>
@@ -142,28 +142,16 @@
 </script>
 
 <style lang="scss" scoped>
+    @import '../../style/common.css';
+
     #userList {
         box-sizing: border-box;
         padding: 20px;
     }
-    .title {
-        line-height: 40px;
-        overflow: hidden;
-        border-bottom: 1px solid #e9eaec;
-    }
-    .title__h1 {
-        float: left;
-        width: 200px;
-        font-size: 15px;
-        color: #495060;
-    }
-    .title__button {
-        float: right;
-    }
-    .userTable {
+    .userList__table {
         margin: 10px 0;
     }
-    .page {
+    .userList__page {
         float: right;
     }
 </style>

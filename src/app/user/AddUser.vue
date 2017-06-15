@@ -13,7 +13,7 @@
                         <Button @click="returnList" class="title__button" type="primary" icon="reply">返回列表</Button>
                     </router-link>
                 </div>
-                <div class="addUser-form">
+                <div class="addUser__form">
                     <Form ref="formValidate" :model="formValidate" :rules="ruleValidate" :label-width="100">
                         <Form-item label="姓名" prop="name">
                             <Input v-model="formValidate.name" placeholder="请输入姓名"></Input>
@@ -109,26 +109,14 @@
 </script>
 
 <style lang="scss">
+    @import '../../style/common.css';
+
     #addUser {
         box-sizing: border-box;
         padding: 20px;
     }
-    .title {
-        line-height: 40px;
-        overflow: hidden;
-        border-bottom: 1px solid #e9eaec;
-    }
-    .title__h1 {
-        float: left;
-        width: 200px;
-        font-size: 15px;
-        color: #495060;
-    }
-    .title__button {
-        float: right;
-    }
-    .addUser-form {
-        margin: 30px auto;
-        width: 550px;
+    .addUser__form {
+        margin: 30px 0;
+        width: 500px;
     }
 </style>

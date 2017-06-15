@@ -11,30 +11,5 @@ export default {
 </script>
 
 <style>
-* {
-  margin: 0;
-  padding: 0;
-}
-body {
-  background-color: rgb(245, 246, 250);
-}
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-size: 13px;
-  color: #666666;
-}
-.left {
-  position: fixed;
-  z-index: 999;
-  top: 60px;
-  left: 0;
-  height: 100%;
-  background-color: #2d3545;
-}
-.right {
-  box-sizing: border-box;
-  margin-top: 60px;
-}
+    @import './style/common.css';
 </style>

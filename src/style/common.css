@@ -1,0 +1,44 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 13px;
+  color: #495060;
+  background-color: rgb(245, 246, 250);
+}
+
+/* 定义侧边导航栏位置 */
+.left {
+  position: fixed;
+  z-index: 999;
+  top: 60px;
+  left: 0;
+  height: 100%;
+  background-color: #2d3545;
+}
+
+/* 定义右侧主体内容位置 */
+.right {
+  box-sizing: border-box;
+  margin-top: 60px;
+}
+
+/* 定义主体内容头部样式 */
+.title {
+    line-height: 40px;
+    overflow: hidden;
+    border-bottom: 1px solid #e9eaec;
+}
+.title__h1 {
+    float: left;
+    width: 200px;
+    font-size: 15px;
+    color: #495060;
+}
+.title__button {
+    float: right;
+}

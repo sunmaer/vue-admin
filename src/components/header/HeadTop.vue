@@ -9,7 +9,7 @@
             </Col>
             <Col class="header-menu" span="8" offset="12">
                 <ul class="header-menu__ul">
-                    <li class="header-menu__ul__li">注销登录</li>
+                    <li class="header-menu__ul__li" @click="loginOut">注销登录</li>
                     <li class="header-menu__ul__li" @click="showAdmin">您好，Admin</li>
                 </ul>
             </Col>
@@ -26,15 +26,18 @@
         },
         methods: {
             showAdmin() {
-            this.$Modal.info({
-                title: '个人信息',
-                content: `姓名：Admin<br>
-                            性别: 男<br>
-                            年龄：16<br>
-                            工作：老师<br>
-                            手机号码：15927366830<br>
-                            地址：光谷软件园<br>`
+                this.$Modal.info({
+                    title: '个人信息',
+                    content: `姓名：Admin<br>
+                                性别: 男<br>
+                                年龄：16<br>
+                                工作：老师<br>
+                                手机号码：15927366830<br>
+                                地址：光谷软件园<br>`
                 })
+            },
+            loginOut() {
+                this.$router.push("/login")
             }
         }
     }
@@ -73,9 +76,5 @@
         &:hover {
             color: #2d8cf0;
         }
-    }
-    .form {
-        box-sizing: border-box;
-        padding: 0 30px;
     }
 </style>

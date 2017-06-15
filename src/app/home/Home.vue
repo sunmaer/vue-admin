@@ -151,23 +151,11 @@
 </script>
 
 <style lang="scss">
+    @import '../../style/common.css';
+
     #home {
         box-sizing: border-box;
         padding: 20px;
-    }
-    .title {
-        line-height: 40px;
-        overflow: hidden;
-        border-bottom: 1px solid #e9eaec;
-    }
-    .title__h1 {
-        float: left;
-        width: 200px;
-        font-size: 15px;
-        color: #495060;
-    }
-    .title__button {
-        float: right;
     }
     #barChart,#lineChart {
         width: 100%;
