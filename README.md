@@ -21,6 +21,9 @@ Vue2.0 + vuex + vue-router + axios + webpack + ES6 + Sass
 # 下载代码
 $ git clone https://github.com/sunmaer/vue-user.git
 
+# 进入项目
+cd vue-user
+
 # 安装依赖
 npm install
 
