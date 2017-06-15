@@ -58,6 +58,12 @@ $ npm install --save axios
 $ npm install --save vuex
 ```
 
+#### 4.用 ECharts 分析用户数据
+```bash
+# 安装 echarts
+$ npm install --save echarts
+```
+
 ## 项目结构
 
 ```
@@ -78,7 +84,7 @@ $ npm install --save vuex
 |-- node_modules                     // 项目依赖
 |-- src                              // 源码目录
 |   |-- app                          // 业务代码
-|       |-- home                     // 系统首页，用户数据分析
+|       |-- home                     // 系统首页，用户分析
 |       |-- login                    // 登录页面
 |       |-- user                     // 用户模块
 |   |-- assets                       // 项目静态资源（图片等）
@@ -117,3 +123,11 @@ $ npm install --save vuex
 * .block 代表了更高级别的抽象或组件。
 * .block__element 代表.block的后代，用于形成一个完整的.block的整体。
 * .block--modifier代表.block的不同状态或不同版本。
+
+## 目标功能
+- [ ] 用户登录
+- [ ] 添加用户
+- [ ] 展示用户列表
+- [ ] 用户分析
+- [ ] 用户信息修改
+- [ ] 权限管理 
