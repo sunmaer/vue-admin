@@ -26,8 +26,11 @@
     export default {
         data() {
             return {
-                navselected: "1"
+                navselected: ''
             }
+        },
+        mounted: function() {
+            this.navselected = this.$store.state.activeName
         },
         methods: {
             getNavType() {

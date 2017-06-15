@@ -1,30 +1,46 @@
 <template>
-    <div id="index">
-        <div class="title">
-            <h1 class="title__h1">用户分析</h1>
-            <router-link to="/user/userList">
-                <Button @click="returnList" class="title__button" type="primary" icon="forward">用户列表</Button>
-            </router-link>
-        </div>
+    <Row>
+        <headTop></headTop>
         <Row>
-            <Col span="12">
-                <div id="barChart"></div>
+            <Col class="left" span="4">
+                <sideBar></sideBar> 
             </Col>
-            <Col span="12">
-                <div id="lineChart"></div>
+            <Col class="right" span="20" offset="4">
+                <div id="home">
+                    <div class="title">
+                        <h1 class="title__h1">用户分析</h1>
+                        <router-link to="/user/userList">
+                            <Button @click="returnList" class="title__button" type="primary" icon="forward">用户列表</Button>
+                        </router-link>
+                    </div>
+                    <Row>
+                        <Col span="12">
+                            <div id="barChart"></div>
+                        </Col>
+                        <Col span="12">
+                            <div id="lineChart"></div>
+                        </Col>
+                    </Row>
+                </div>
             </Col>
         </Row>
-        
-    </div>
+    </Row>
 </template>
 
 <script>
+    import headTop from '../../components/header/HeadTop'
+    import sideBar from '../../components/sideBar/SideBar'
+
     export default {
         name: 'index',
         data() {
             return {
                 job: ["学生", "老师", "工人", "运动员", "演员", "歌手", "司机", "程序员"]
             }
+        },
+        components: {
+            headTop,
+            sideBar
         },
         mounted() {
             this.drawLine()
@@ -135,7 +151,7 @@
 </script>
 
 <style lang="scss">
-    #index {
+    #home {
         box-sizing: border-box;
         padding: 20px;
     }

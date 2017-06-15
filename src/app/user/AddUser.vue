@@ -1,43 +1,56 @@
 <template>
-    <div id="addUser">
-        <div class="title">
-            <h1 class="title__h1">添加用户</h1>
-            <router-link to="/user/userList">
-                <Button @click="returnList" class="title__button" type="primary" icon="reply">返回列表</Button>
-            </router-link>
-        </div>
-        <div class="addUser-form">
-            <Form ref="formValidate" :model="formValidate" :rules="ruleValidate" :label-width="100">
-                <Form-item label="姓名" prop="name">
-                    <Input v-model="formValidate.name" placeholder="请输入姓名"></Input>
-                </Form-item>
-                <Form-item label="性别" prop="gender">
-                    <Radio-group v-model="formValidate.gender">
-                        <Radio label="male">男</Radio>
-                        <Radio label="female">女</Radio>
-                    </Radio-group>
-                </Form-item>
-                <Form-item label="年龄" prop="age">
-                    <Input v-model="formValidate.age" placeholder="请输入年龄"></Input>
-                </Form-item>
-                <Form-item label="工作" prop="job">
-                    <Input v-model="formValidate.job" placeholder="请输入工作"></Input>
-                </Form-item>
-                <Form-item label="手机号码" prop="tel">
-                    <Input v-model="formValidate.tel" placeholder="请输入手机号码"></Input>
-                </Form-item>
-                <Form-item label="地址" prop="address">
-                    <Input v-model="formValidate.address" placeholder="请输入地址"></Input>
-                </Form-item>
-                <Form-item>
-                    <Button type="primary" @click="handleSubmit('formValidate')">提交</Button>
-                    <Button type="ghost" @click="handleReset('formValidate')" style="margin-left: 8px">重置</Button>
-                </Form-item>
-            </Form>
-        </div>
-    </div>
+    <Row>
+        <headTop></headTop>
+        <Row>
+            <Col class="left" span="4">
+                <sideBar></sideBar> 
+            </Col>
+            <Col class="right" span="20" offset="4">
+                <div id="addUser">
+                <div class="title">
+                    <h1 class="title__h1">添加用户</h1>
+                    <router-link to="/user/userList">
+                        <Button @click="returnList" class="title__button" type="primary" icon="reply">返回列表</Button>
+                    </router-link>
+                </div>
+                <div class="addUser-form">
+                    <Form ref="formValidate" :model="formValidate" :rules="ruleValidate" :label-width="100">
+                        <Form-item label="姓名" prop="name">
+                            <Input v-model="formValidate.name" placeholder="请输入姓名"></Input>
+                        </Form-item>
+                        <Form-item label="性别" prop="gender">
+                            <Radio-group v-model="formValidate.gender">
+                                <Radio label="male">男</Radio>
+                                <Radio label="female">女</Radio>
+                            </Radio-group>
+                        </Form-item>
+                        <Form-item label="年龄" prop="age">
+                            <Input v-model="formValidate.age" placeholder="请输入年龄"></Input>
+                        </Form-item>
+                        <Form-item label="工作" prop="job">
+                            <Input v-model="formValidate.job" placeholder="请输入工作"></Input>
+                        </Form-item>
+                        <Form-item label="手机号码" prop="tel">
+                            <Input v-model="formValidate.tel" placeholder="请输入手机号码"></Input>
+                        </Form-item>
+                        <Form-item label="地址" prop="address">
+                            <Input v-model="formValidate.address" placeholder="请输入地址"></Input>
+                        </Form-item>
+                        <Form-item>
+                            <Button type="primary" @click="handleSubmit('formValidate')">提交</Button>
+                            <Button type="ghost" @click="handleReset('formValidate')" style="margin-left: 8px">重置</Button>
+                        </Form-item>
+                    </Form>
+                </div>
+            </div>
+            </Col>
+        </Row>
+    </Row>
 </template>
 <script>
+    import headTop from '../../components/header/HeadTop'
+    import sideBar from '../../components/sideBar/SideBar'
+
     export default {
         data () {
             return {
@@ -70,6 +83,10 @@
                     ]
                 }
             }
+        },
+        components: {
+            headTop,
+            sideBar
         },
         methods: {
             returnList() {

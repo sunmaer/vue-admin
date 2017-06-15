@@ -2,8 +2,6 @@ import Vue from 'vue'
 import Router from 'vue-router'
 
 // 懒加载组件
-const Header = r => require.ensure([], () => r(require('../components/header/Header')), 'header')
-const SideBar = r => require.ensure([], () => r(require('../components/sideBar/SideBar')), 'sideBar')
 const Login = r => require.ensure([], () => r(require('../app/login/Login')), 'login')
 const Home = r => require.ensure([], () => r(require('../app/home/Home')), 'home')
 const UserList = r => require.ensure([], () => r(require('../app/user/UserList')), 'userList')
@@ -26,29 +24,17 @@ export default new Router({
     // 系统首页
     {
       path: '/home',
-      components: {
-        header: Header,
-        sideBar: SideBar,
-        default: Home
-      }
+      component: Home
     },
-    // 用户列表
+    // 用户列表页面
     {
       path: '/user/userList',
-      components: {
-        header: Header,
-        sideBar: SideBar,
-        default: UserList
-      }
+      component: UserList
     },
-    // 添加用户
+    // 添加用户页面
     {
       path: '/user/addUser',
-      components: {
-        header: Header,
-        sideBar: SideBar,
-        default: AddUser
-      }      
+      component: AddUser    
     }
   ]
 })

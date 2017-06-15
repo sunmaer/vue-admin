@@ -1,17 +1,30 @@
 <template>
-    <div id="userList">
-        <div class="title">
-            <h1 class="title__h1">用户列表</h1>
-            <router-link to="/user/addUser">
-                <Button @click="addUser" class="title__button" type="primary" icon="plus-round">添加用户</Button>
-            </router-link>
-        </div>
-        <Table class="userTable" border :columns="columns" :data="data"></Table>
-        <Page class="page" :total="50" show-total size="small"></Page>
-    </div>
+    <Row>
+        <headTop></headTop>
+        <Row>
+            <Col class="left" span="4">
+                <sideBar></sideBar> 
+            </Col>
+            <Col class="right" span="20" offset="4">
+                <div id="userList">
+                    <div class="title">
+                        <h1 class="title__h1">用户列表</h1>
+                        <router-link to="/user/addUser">
+                            <Button @click="addUser" class="title__button" type="primary" icon="plus-round">添加用户</Button>
+                        </router-link>
+                    </div>
+                    <Table class="userTable" border :columns="columns" :data="data"></Table>
+                    <Page class="page" :total="50" show-total size="small"></Page>
+                </div>
+            </Col>
+        </Row>
+    </Row>
 </template>
 
 <script>
+    import headTop from '../../components/header/HeadTop'
+    import sideBar from '../../components/sideBar/SideBar'
+
     export default {
         data () {
             return {
@@ -90,6 +103,10 @@
                 ],
                 data: []
             }
+        },
+        components: {
+            headTop,
+            sideBar
         },
         mounted: function() {
             this.getUser()

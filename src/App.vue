@@ -1,14 +1,6 @@
 <template>
   <div id="app">
-    <router-view name="header"></router-view>
-    <Row>
-      <Col class="left" span="4">
-        <router-view name="sideBar"></router-view> 
-      </Col>
-      <Col class="right" span="20" offset="4">
-        <router-view></router-view>
-      </Col>
-    </Row>
+    <router-view></router-view>
   </div>
 </template>
 
