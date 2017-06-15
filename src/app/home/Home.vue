@@ -2,7 +2,7 @@
     <div id="index">
         <div class="title">
             <h1 class="title__h1">用户分析</h1>
-            <router-link to="/userList">
+            <router-link to="/user/userList">
                 <Button @click="returnList" class="title__button" type="primary" icon="forward">用户列表</Button>
             </router-link>
         </div>
@@ -155,7 +155,7 @@
     }
     #barChart,#lineChart {
         width: 100%;
-        height: 500px;
+        height: 450px;
     }
 </style>
 

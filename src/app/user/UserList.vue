@@ -2,7 +2,7 @@
     <div id="userList">
         <div class="title">
             <h1 class="title__h1">用户列表</h1>
-            <router-link to="/addUser">
+            <router-link to="/user/addUser">
                 <Button @click="addUser" class="title__button" type="primary" icon="plus-round">添加用户</Button>
             </router-link>
         </div>

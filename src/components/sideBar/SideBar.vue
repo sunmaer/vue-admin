@@ -1,18 +1,18 @@
 <template>
     <Menu class="sideBar" theme="dark" accordion width="auto" :active-name="navselected" @on-select="selectItems"> 
-        <router-link to="/">
+        <router-link to="/home">
             <Menu-item class="sideBar__item" name="1">
                 <Icon type="ios-home" size="18"></Icon>
                 系统首页
             </Menu-item>
         </router-link>
-        <router-link to="/userList">
+        <router-link to="/user/userList">
             <Menu-item class="sideBar__item" name="2">
                 <Icon type="person-stalker" size="18"></Icon>
                 用户列表
             </Menu-item>
         </router-link>
-        <router-link to="/addUser">
+        <router-link to="/user/addUser">
             <Menu-item class="sideBar__item" name="3">
                 <Icon type="person-add" size="18"></Icon>
                 添加用户
