@@ -12,7 +12,7 @@
                 用户列表
             </Menu-item>
         </router-link>
-        <router-link to="/user/addUser">
+        <router-link to="/user/addUser" v-show="identity === 'super'">
             <Menu-item class="sideBar__item" name="3">
                 <Icon type="person-add" size="18"></Icon>
                 添加用户
@@ -26,11 +26,13 @@
     export default {
         data() {
             return {
-                navselected: ''
+                navselected: '',
+                identity: '' // 管理员身份
             }
         },
         mounted: function() {
             this.navselected = this.$store.state.activeName
+            this.identity = this.$store.state.admin.identity
         },
         methods: {
             getNavType() {

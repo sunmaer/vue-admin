@@ -9,8 +9,8 @@
             </Col>
             <Col class="header-menu" span="8" offset="12">
                 <ul class="header-menu__ul">
-                    <li class="header-menu__ul__li" @click="loginOut">注销登录</li>
-                    <li class="header-menu__ul__li" @click="showAdmin">您好，Admin</li>
+                    <li class="header-menu__ul__li" @click="logout">注销登录</li>
+                    <li class="header-menu__ul__li" @click="showAdmin">您好，{{ adminName }}</li>
                 </ul>
             </Col>
         </Row>
@@ -18,27 +18,34 @@
 </template>
 
 <script>
+    import * as types from '../../store/types'
     export default {
         data () {
             return {
-                
+                adminName: ''
             }
+        },
+        mounted: function() {
+            this.adminName = this.$store.state.admin.name
         },
         methods: {
             showAdmin() {
                 this.$Modal.info({
                     title: '个人信息',
-                    content: `姓名：Admin<br>
-                                性别: 男<br>
-                                年龄：16<br>
-                                工作：老师<br>
-                                手机号码：15927366830<br>
-                                地址：光谷软件园<br>`
+                    content: `姓名：${this.$store.state.admin.name}<br>
+                                性别: ${this.$store.state.admin.gender}<br>
+                                年龄：${this.$store.state.admin.age}<br>
+                                工作：${this.$store.state.admin.job}<br>
+                                手机号码：${this.$store.state.admin.tel}<br>
+                                地址：${this.$store.state.admin.address}<br>`
                 })
             },
-            loginOut() {
-                this.$router.push("/login")
-            }
+            logout(){
+            this.$store.commit(types.LOGOUT)
+            this.$router.push({
+              path: '/'
+            })
+          }
         }
     }
 </script>

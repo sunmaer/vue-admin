@@ -15,13 +15,14 @@
                         <Icon type="ios-locked-outline" slot="prepend"></Icon>
                     </Input>
                 </Form-item>
-                <Button type="primary" long>登录</Button>
+                <Button type="primary" long @click="login()">登录</Button>
             </Form>
         </Col>
     </Row>
 </template>
 
 <script>
+    import * as types from '../../store/types'
     export default {
         data () {
             return {
@@ -39,6 +40,23 @@
                     ]
                 }
             }
+        },
+        methods: {
+          login(){
+             this.$ajax.get('/static/admin.json').then((res) => {
+               var array = res.data.admin
+                var admin = array.filter((value, index, arr) => {
+                  return value.uid === this.form.user
+                })
+                if (admin.length === 1 && admin[0].uid === this.form.user && admin[0].password === this.form.password) {
+                  this.$store.commit(types.LOGIN, admin[0])
+                  let redirect = decodeURIComponent(this.$route.query.redirect || '/home');
+                  this.$router.push({
+                    path: redirect
+                  })
+                }
+             })
+          }
         }
     }
 </script>

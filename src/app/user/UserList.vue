@@ -71,33 +71,49 @@
                         width: 150,
                         align: 'center',
                         render: (h, params) => {
-                            return h('div', [
-                                h('Button', {
-                                    props: {
-                                        type: 'primary',
-                                        size: 'small'
-                                    },
-                                    style: {
-                                        marginRight: '5px'
-                                    },
-                                    on: {
-                                        click: () => {
-                                            this.show(params.index)
+                            if(this.$store.state.admin.identity === 'super') {
+                                return h('div', [
+                                    h('Button', {
+                                        props: {
+                                            type: 'primary',
+                                            size: 'small'
+                                        },
+                                        style: {
+                                            marginRight: '5px'
+                                        },
+                                        on: {
+                                            click: () => {
+                                                this.show(params.index)
+                                            }
                                         }
-                                    }
-                                }, '查看'),
-                                h('Button', {
-                                    props: {
-                                        type: 'error',
-                                        size: 'small'
-                                    },
-                                    on: {
-                                        click: () => {
-                                            this.remove(params.index)
+                                    }, '查看'),
+                                    h('Button', {
+                                        props: {
+                                            type: 'error',
+                                            size: 'small'
+                                        },
+                                        on: {
+                                            click: () => {
+                                                this.remove(params.index)
+                                            }
                                         }
-                                    }
-                                }, '删除')
-                            ])
+                                    }, '删除')
+                                ])
+                            } else {
+                                return h('div', [
+                                    h('Button', {
+                                        props: {
+                                            type: 'primary',
+                                            size: 'small'
+                                        },
+                                        on: {
+                                            click: () => {
+                                                this.show(params.index)
+                                            }
+                                        }
+                                    }, '查看')
+                                ])
+                            }
                         }
                     }
                 ],
@@ -109,6 +125,7 @@
             sideBar
         },
         mounted: function() {
+            this.$store.state.activeName = "2"
             this.getUser()
         },
         methods: {
@@ -117,8 +134,8 @@
             },
             // 获取用户数据
             getUser() {
-                this.$ajax.get('/static/data.json').then((res) => {
-                    this.data = res.data.data
+                this.$ajax.get('/static/user.json').then((res) => {
+                    this.data = res.data.user
                 })
             },
             // 查看用户信息

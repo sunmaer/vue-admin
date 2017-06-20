@@ -88,6 +88,9 @@
             headTop,
             sideBar
         },
+        mounted: function() {
+            this.$store.state.activeName = "3"
+        },
         methods: {
             returnList() {
                 this.$store.state.activeName = "2"
