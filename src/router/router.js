@@ -14,7 +14,7 @@ Vue.use(Router)
 const routes = [
   // 重定向，默认登录页面
   {
-      path:'*',
+      path: '*',
       redirect: '/login'
   },
   // 登录页面
