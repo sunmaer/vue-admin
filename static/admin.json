@@ -1,0 +1,25 @@
+{
+    "admin" : [
+        {   
+            "uid": "111111",
+            "password": "123456",
+            "identity": "super",
+            "name": "超级管理员",
+            "gender": "男",
+            "age": "20",
+            "job": "学生1",
+            "tel": "15999999999",
+            "address": "光谷软件园"
+        },
+        {
+            "uid": "222222",
+            "password": "123456",
+            "identity": "common",
+            "name": "普通管理员",
+            "gender": "男",
+            "age": "20",
+            "job": "学生1",
+            "tel": "15999999999",
+            "address": "光谷软件园"
+        }]
+}
