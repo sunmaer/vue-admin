@@ -24,8 +24,8 @@ $ git clone https://github.com/sunmaer/vue-user.git
 # 进入项目
 cd vue-user
 
-# 安装依赖
-npm install
+# 安装依赖（建议使用 npm 淘宝镜像源）
+npm install 
 
 # 开发调试
 npm run dev
@@ -46,7 +46,8 @@ npm test
 
 ```bash
 # 安装 node-sass、sass-loader
-$ npm install --save-dev node-sass sass-loader
+$ npm install node-sass --save-dev
+$ npm install sass-loader --save
 ```
 
 #### 2.用 axios 作为 ajax 方案

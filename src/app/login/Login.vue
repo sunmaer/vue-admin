@@ -75,8 +75,8 @@ export default {
                     { validator: validateName, trigger: 'blur' }
                 ],
                 password: [
-                    { validator: validatePass, trigger: 'blur' },
-                    { type: 'string', min: 6, message: '密码长度不能小于6位', trigger: 'blur' }
+                    { type: 'string', min: 6, message: '密码长度不能小于6位', trigger: 'blur' },
+                    { validator: validatePass, trigger: 'blur' }
                 ]
             }
         }
